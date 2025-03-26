@@ -43,18 +43,30 @@ public class ControllerCurso {
         }
     }
 
-    @PutMapping("/{idCurso}")
-    public ResponseEntity<Optional<Curso>> update(@PathVariable long idCurso, @RequestBody Curso curso){
-        Optional<Curso> cursoOptional = cursoRepository.findById(idCurso);
+    @PutMapping("/{id}")
+    public  ResponseEntity<Object> update(@PathVariable long id, @RequestBody Curso cursoUpdate){
+        Optional<Curso> cursoOptional = cursoRepository.findById(id);
         if(cursoOptional.isPresent()){
-            curso.setNome(curso.getNome());
-            curso.setNumeroSala(curso.getNumeroSala());
-            curso.setProfessor(curso.getProfessor());
-            return ResponseEntity.status(HttpStatus.FOUND).body(cursoOptional);
+            Curso curso = cursoOptional.get();
+            curso.setNome(cursoUpdate.getNome());
+            curso.setProfessor(cursoUpdate.getProfessor());
+            curso.setNumeroSala(cursoUpdate.getNumeroSala());
+            cursoRepository.save(curso);
+            return ResponseEntity.status(HttpStatus.OK).build();
         }else{
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> delete(@PathVariable long id){
+        Optional<Curso> cursoOptional = cursoRepository.findById(id);
+        if(cursoOptional.isPresent()){
+            Curso curso = cursoOptional.get();
+            cursoRepository.delete(curso);
+            return ResponseEntity.status(HttpStatus.FOUND).body("Curso deletado com sucesso!");
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Erro ao deletar o curso!");
+        }
+    }
 }
 
