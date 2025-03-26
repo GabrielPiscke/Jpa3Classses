@@ -35,7 +35,6 @@ public class ControllerProfessor {
             return ResponseEntity.notFound().build();
         }
     }
-
     @PutMapping("/{id}")
     public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody Professor updateProfessor) {
         Optional<Professor> optionalProfessor = professorRepository.findById(id);
@@ -48,7 +47,6 @@ public class ControllerProfessor {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Professro não alterado");
         }
     }
-
     @DeleteMapping("/{id}")
         public ResponseEntity<String> delete(@PathVariable Long id){
         Optional<Professor> optionalProfessor1 = professorRepository.findById(id);
@@ -60,8 +58,5 @@ public class ControllerProfessor {
         else{
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Professor não encontrado!");
         }
-
     }
-
-
 }

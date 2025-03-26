@@ -42,7 +42,6 @@ public class ControllerCurso {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
-
     @PutMapping("/{id}")
     public  ResponseEntity<Object> update(@PathVariable long id, @RequestBody Curso cursoUpdate){
         Optional<Curso> cursoOptional = cursoRepository.findById(id);
