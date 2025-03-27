@@ -63,4 +63,12 @@ public class Curso {
     public void setNumeroSala(int numeroSala) {
         this.numeroSala = numeroSala;
     }
+
+    public List<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
+    }
 }
