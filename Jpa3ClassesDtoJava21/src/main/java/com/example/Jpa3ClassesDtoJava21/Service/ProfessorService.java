@@ -17,6 +17,12 @@ public class ProfessorService {
         professor.setCpf(professorDto.getCpf());
         return professor;
     }
+    public ProfessorDto toDTO(Professor professor){
+        ProfessorDto professorDto = new ProfessorDto();
+        professorDto.setNome(professor.getNome());
+        professorDto.setCpf(professor.getCpf());
+        return professorDto;
+    }
     public Professor save (ProfessorDto professorDto){
         Professor professor = this.fromDTO(professorDto);
         Professor professorBd = professorRepository.save(professor);
