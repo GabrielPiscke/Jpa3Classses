@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 public class ProdutoDto {
     private Long id;
     private String nome;
-    private int quantidade;
-    private float preco;
+    private int saldo;
+    private int saldominimo;
+    private float valor;
 }

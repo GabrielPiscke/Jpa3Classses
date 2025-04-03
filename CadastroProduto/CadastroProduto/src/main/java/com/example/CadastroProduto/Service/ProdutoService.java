@@ -17,8 +17,9 @@ public class ProdutoService {
     public Produto fromDTO(ProdutoDto produtoDTO){
         Produto produto = new Produto();
         produto.setNome(produtoDTO.getNome());
-        produto.setQuantidade(produtoDTO.getQuantidade());
-        produto.setPreco(produtoDTO.getPreco());
+        produto.setSaldo(produtoDTO.getSaldo());
+        produto.setSaldominimo(produtoDTO.getSaldominimo());
+        produto.setValor(produtoDTO.getValor());
 
         return produto;
     }
@@ -26,8 +27,9 @@ public class ProdutoService {
     public ProdutoDto toDTO(Produto produto){
         ProdutoDto produtoDTO = new ProdutoDto();
         produtoDTO.setNome(produto.getNome());
-        produtoDTO.setQuantidade(produto.getQuantidade());
-        produtoDTO.setPreco(produto.getPreco());
+        produtoDTO.setSaldo(produto.getSaldo());
+        produtoDTO.setSaldominimo(produto.getSaldominimo());
+        produtoDTO.setValor(produto.getValor());
 
         return produtoDTO;
     }
@@ -57,8 +59,9 @@ public class ProdutoService {
             Produto produto = optionalProduto.get();
             produto.setNome(produtoDTO.getNome());
             produto.setId(produtoDTO.getId());
-            produto.setQuantidade(produtoDTO.getQuantidade());
-            produto.setPreco(produtoDTO.getPreco());
+            produto.setSaldo(produtoDTO.getSaldo());
+            produto.setSaldominimo(produtoDTO.getSaldominimo());
+            produto.setValor(produtoDTO.getValor());
 
             Produto produtoUpdate = produtoRepository.save(produto);
 

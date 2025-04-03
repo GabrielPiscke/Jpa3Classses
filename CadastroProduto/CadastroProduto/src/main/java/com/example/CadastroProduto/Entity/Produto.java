@@ -15,8 +15,9 @@ import lombok.NoArgsConstructor;
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String nome;
-    private int quantidade;
-    private float preco;
+    private int saldo;
+    private int saldominimo;
+    private float valor;
 }
